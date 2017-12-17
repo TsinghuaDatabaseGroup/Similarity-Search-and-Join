@@ -1,0 +1,82 @@
+#pragma once
+
+#include "SignatureIndex.h"
+#include "TokenSetSigScheme/TokenSetSigScheme.h"
+using namespace std;
+
+struct Result{
+	int id1, id2;
+	double sim;
+	Result(uint id1, uint id2, double sim): id1(id1), id2(id2), sim(sim) {}
+};
+
+template <class T>
+class FastJoin
+{
+private:
+	TokenSetSigScheme<T>* _tokenSetSigScheme;
+private:
+	void _filter(const vector<T>& signatures, const SignatureIndex<T, int>& indexer, vector<uint>& candidateIds);
+	void _verify(int tokenSetId, const vector<string>& tokenSet, const vector<uint>& candidateIds, const vector<vector<string> >& tokenSets, vector<Result>& results);
+public:
+	FastJoin(TokenSetSigScheme<T>* tokenSetSigScheme) { _tokenSetSigScheme =tokenSetSigScheme;}
+	~FastJoin(void) {}
+public:
+	void setTokenSetSigScheme(TokenSetSigScheme<T>* tokenSetSigScheme) {_tokenSetSigScheme =tokenSetSigScheme;}
+	void join(vector<vector<string> >& tokenSets, double delta, double tau, vector<Result>& results);
+};
+
+template <class T>
+void FastJoin<T>::_filter(const vector<T>& signatures, const SignatureIndex<T, int>& indexer, vector<uint>& candidateIds)				
+{	
+	unordered_set<uint> uniqueIds;
+	for (uint i=0; i<signatures.size(); ++i)
+	{
+		if (indexer.containSignature(signatures[i]))
+		{
+			const vector<int>& ids = indexer.getSignatureIndexList(signatures[i]);
+			for (uint j=0; j<ids.size(); ++j)
+			{
+				uint id = ids[j];
+				if (!uniqueIds.count(id))
+					uniqueIds.insert(id);
+			}
+		}
+	}
+	for (unordered_set<uint>::iterator it = uniqueIds.begin(); it!=uniqueIds.end(); ++it)
+		candidateIds.push_back(*it);
+}
+template <class T>
+void FastJoin<T>::_verify(int tokenSetId, const vector<string>& tokenSet, const vector<uint>& candidateIds, const vector<vector<string> >& tokenSets, vector<Result>& results)
+{
+	for (uint i=0; i<candidateIds.size(); ++i)
+	{
+		uint candidateId = candidateIds[i];
+		const vector<string>& tokenSetCandidate = tokenSets[candidateId];
+		double sim = _tokenSetSigScheme->similarity(tokenSet, tokenSetCandidate);
+		if (sim>0)
+			results.push_back(Result(tokenSetId, candidateId, sim));
+	}
+}
+
+template <class T>
+void FastJoin<T>::join(vector<vector<string> >& tokenSets, double delta, double tau, vector<Result>& results)
+{
+	_tokenSetSigScheme->build(tokenSets, delta, tau);
+
+	SignatureIndex<T, int> indexer;
+	for (uint i=0; i<tokenSets.size(); ++i)
+	{
+		const vector<string>& tokenSet = tokenSets[i];
+		vector<T> signatures;
+		_tokenSetSigScheme->getQuerySig(tokenSet, signatures);
+
+		vector<uint> candidateIds;
+		_filter(signatures, indexer, candidateIds);
+		_verify(i, tokenSet, candidateIds, tokenSets, results);
+		signatures.clear();
+		_tokenSetSigScheme->getDataSig(tokenSet, signatures);
+		indexer.addSignatures(signatures, i);
+	}
+}
+

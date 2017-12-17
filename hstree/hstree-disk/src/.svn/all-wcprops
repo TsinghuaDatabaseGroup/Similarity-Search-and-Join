@@ -1,0 +1,77 @@
+K 25
+svn:wc:ra_dav:version-url
+V 63
+/svn/ifsearch/!svn/ver/13658/code/string/hstree/hstree-disk/src
+END
+compile.sh
+K 25
+svn:wc:ra_dav:version-url
+V 74
+/svn/ifsearch/!svn/ver/13658/code/string/hstree/hstree-disk/src/compile.sh
+END
+util.h
+K 25
+svn:wc:ra_dav:version-url
+V 70
+/svn/ifsearch/!svn/ver/13658/code/string/hstree/hstree-disk/src/util.h
+END
+free.h
+K 25
+svn:wc:ra_dav:version-url
+V 70
+/svn/ifsearch/!svn/ver/13658/code/string/hstree/hstree-disk/src/free.h
+END
+main.cc
+K 25
+svn:wc:ra_dav:version-url
+V 71
+/svn/ifsearch/!svn/ver/13658/code/string/hstree/hstree-disk/src/main.cc
+END
+storage.cc
+K 25
+svn:wc:ra_dav:version-url
+V 74
+/svn/ifsearch/!svn/ver/13658/code/string/hstree/hstree-disk/src/storage.cc
+END
+search.cc
+K 25
+svn:wc:ra_dav:version-url
+V 73
+/svn/ifsearch/!svn/ver/13658/code/string/hstree/hstree-disk/src/search.cc
+END
+compact.cc
+K 25
+svn:wc:ra_dav:version-url
+V 74
+/svn/ifsearch/!svn/ver/13658/code/string/hstree/hstree-disk/src/compact.cc
+END
+storage.h
+K 25
+svn:wc:ra_dav:version-url
+V 73
+/svn/ifsearch/!svn/ver/13658/code/string/hstree/hstree-disk/src/storage.h
+END
+index.cc
+K 25
+svn:wc:ra_dav:version-url
+V 72
+/svn/ifsearch/!svn/ver/13658/code/string/hstree/hstree-disk/src/index.cc
+END
+search.h
+K 25
+svn:wc:ra_dav:version-url
+V 72
+/svn/ifsearch/!svn/ver/13658/code/string/hstree/hstree-disk/src/search.h
+END
+compact.h
+K 25
+svn:wc:ra_dav:version-url
+V 73
+/svn/ifsearch/!svn/ver/13658/code/string/hstree/hstree-disk/src/compact.h
+END
+index.h
+K 25
+svn:wc:ra_dav:version-url
+V 71
+/svn/ifsearch/!svn/ver/13658/code/string/hstree/hstree-disk/src/index.h
+END

@@ -1,0 +1,53 @@
+K 25
+svn:wc:ra_dav:version-url
+V 51
+/svn/ifsearch/!svn/ver/13479/code/string/hstree/src
+END
+hstree.h
+K 25
+svn:wc:ra_dav:version-url
+V 60
+/svn/ifsearch/!svn/ver/13479/code/string/hstree/src/hstree.h
+END
+compile.sh
+K 25
+svn:wc:ra_dav:version-url
+V 62
+/svn/ifsearch/!svn/ver/13479/code/string/hstree/src/compile.sh
+END
+prepare.cc
+K 25
+svn:wc:ra_dav:version-url
+V 62
+/svn/ifsearch/!svn/ver/13479/code/string/hstree/src/prepare.cc
+END
+free.cc
+K 25
+svn:wc:ra_dav:version-url
+V 59
+/svn/ifsearch/!svn/ver/13479/code/string/hstree/src/free.cc
+END
+main.cc
+K 25
+svn:wc:ra_dav:version-url
+V 59
+/svn/ifsearch/!svn/ver/13479/code/string/hstree/src/main.cc
+END
+hsimSearch.cc
+K 25
+svn:wc:ra_dav:version-url
+V 65
+/svn/ifsearch/!svn/ver/13479/code/string/hstree/src/hsimSearch.cc
+END
+io.cc
+K 25
+svn:wc:ra_dav:version-url
+V 57
+/svn/ifsearch/!svn/ver/13479/code/string/hstree/src/io.cc
+END
+hstopk.cc
+K 25
+svn:wc:ra_dav:version-url
+V 61
+/svn/ifsearch/!svn/ver/13479/code/string/hstree/src/hstopk.cc
+END
